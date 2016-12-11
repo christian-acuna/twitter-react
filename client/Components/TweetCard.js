@@ -18,11 +18,11 @@ class TweetCard extends React.Component {
     };
     return (
       <div>
-        <Tooltip placement="top" title={this.props.tweet.handle}>
-          <a href="#">{this.props.tweet.username}</a>
+        <Tooltip placement="top" title={this.props.tweet.author.handle}>
+          <a href="#">{this.props.tweet.author.username}</a>
         </Tooltip>
 
-        <img style={style} src={this.props.tweet.avatar_url} alt={this.props.tweet.handle}/>
+        <img style={style} src={this.props.tweet.author.avatar_url} alt={this.props.tweet.author.handle}/>
       </div>
     );
   }
