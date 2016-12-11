@@ -1,10 +1,20 @@
 /*jshint esversion: 6 */
 import React from 'react';
+import { Row, Col, Card } from 'antd';
+import Nav from './Nav';
+import TweetsContainer from './TweetsContainer';
+
+
 
 class App extends React.Component {
   render() {
     return (
-      <h1>Hello</h1>
+      <div >
+        <Nav />
+        <div style={{ margin: 100 }}>
+          <TweetsContainer />
+        </div>
+      </div>
     );
   }
 
