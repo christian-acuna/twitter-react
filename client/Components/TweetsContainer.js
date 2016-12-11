@@ -4,6 +4,7 @@ import { chunk } from 'lodash';
 import { Row, Col, Card } from 'antd';
 // import css from '../styles/TweetsContainer.css';
 import tweets from '../data/recent_tweets';
+import TweetCard from './TweetCard';
 
 class TweetsContainer extends React.Component {
 
@@ -11,7 +12,7 @@ class TweetsContainer extends React.Component {
     return tweets.map((tweet, i) => {
       return (
         <Col style={{ padding: '8px' }} key={i} span="8">
-          <Card title={tweet.username} bordered={false}>{tweet.content}</Card>
+          <TweetCard tweet={tweet}/>
         </Col>
       );
     });
