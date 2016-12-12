@@ -9,7 +9,9 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
 
     e.preventDefault();
-    this.props.sendLogin();
+    const email = this.props.sessions.loginForm.email;
+    const password = this.props.sessions.loginForm.password;
+    this.props.sendLogin(email, password);
     // console.log(formData);
     // const email = this.refs.email.value;
     // const password = this.refs.password.value;
@@ -19,15 +21,22 @@ class LoginForm extends React.Component {
     browserHistory.push('/');
     this.props.hideLoginModal();
   }
+  onEmailChange(e) {
+    this.props.updateEmailLogin(e.target.value);
+  }
+
+  onPasswordChange(e) {
+    this.props.updatePasswordLogin(e.target.value);
+  }
 
   render() {
     return (
       <Form ref="loginForm" onSubmit={this.handleSubmit.bind(this)} className="login-form">
         <FormItem ref="email">
-            <Input  addonBefore={<Icon type="user" />} placeholder="Email" />
+            <Input onChange={this.onEmailChange.bind(this)} addonBefore={<Icon type="user" />} placeholder="Email" />
         </FormItem>
         <FormItem ref="password">
-          <Input  addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
+          <Input onChange={this.onPasswordChange.bind(this)} addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
         </FormItem>
         <FormItem>
             <Checkbox>Remember me</Checkbox>

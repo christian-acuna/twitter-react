@@ -13,17 +13,31 @@ export function hideLoginModal() {
   };
 }
 
+export function updateEmailLogin(email) {
+  return {
+    type: "UPDATE_EMAIL_LOGIN",
+    payload: email
+  };
+}
+
+export function updatePasswordLogin(password) {
+  return {
+    type: "UPDATE_PASSWORD_LOGIN",
+    payload: password
+  };
+}
+
 // export function sendLogin() {
 //   return {
 //     type: "LOGIN_REQUEST"
 //   };
 // }
 
-export function sendLogin() {
+export function sendLogin(email, password) {
   return function(dispatch) {
     axios.post("http://localhost:3000/v1/login", {
-      email: 'clemmie.fay@fadel.org',
-      password: '1234567'
+      email: email,
+      password: password
     })
       .then((response) => {
         console.log(response);
