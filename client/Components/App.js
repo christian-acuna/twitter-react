@@ -9,15 +9,17 @@ import Main from './Main';
 import TweetsContainer from './TweetsContainer';
 
 import * as tweetsActions from '../actions/tweetsActions';
+import * as usersActions from '../actions/usersActions';
 
 function mapStateToProps(state) {
   return {
     tweets: state.tweets,
+    user: state.user
   };
 }
 
 function mapDispachToProps(disptach) {
-  return bindActionCreators(tweetsActions, disptach);
+  return bindActionCreators(Object.assign({}, tweetsActions, usersActions), disptach);
 }
 
 const App = connect(mapStateToProps, mapDispachToProps)(Main);

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Row, Col, Card } from 'antd';
-import TweetCard from './TweetCard';
+import UserTweetCard from './UserTweetCard';
 
 class TweetsList extends React.Component {
 
@@ -11,7 +11,7 @@ class TweetsList extends React.Component {
       return (
         <Row>
           <Col style={{ padding: '8px' }} key={i} span="24">
-            <TweetCard bordered={true} tweet={tweet}/>
+            <UserTweetCard bordered={true} tweet={tweet} author={this.props.user.user}/>
           </Col>
         </Row>
       );
@@ -21,7 +21,7 @@ class TweetsList extends React.Component {
   render() {
     return (
       <div>
-        { this.createTweetArray(this.props.tweets.tweets) }
+        { this.createTweetArray(this.props.user.user.tweets) }
       </div>
     );
   }

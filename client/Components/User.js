@@ -4,6 +4,9 @@ import TweetsList from './TweetsList';
 import { Row, Col, Card } from 'antd';
 
 class User extends React.Component {
+  componentWillMount(){
+    this.props.fetchUser(this.props.params.userId);
+  }
 
   render() {
     return (
