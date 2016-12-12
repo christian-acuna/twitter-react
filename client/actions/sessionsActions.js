@@ -12,3 +12,9 @@ export function hideLoginModal() {
     type: "HIDE_LOGIN_MODAL"
   };
 }
+
+export function sendLogin() {
+  return {
+    type: "LOGIN_REQUEST"
+  };
+}
