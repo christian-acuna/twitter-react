@@ -9,7 +9,7 @@ const Main = React.createClass({
     return (
       <div >
         <Nav />
-        <div style={{ margin: 100 }}>
+        <div>
           {React.cloneElement(this.props.children, this.props)}
         </div>
       </div>

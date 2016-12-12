@@ -19,7 +19,7 @@ class TweetCard extends React.Component {
     return (
       <div>
         <Tooltip placement="top" title={this.props.tweet.author.handle}>
-          <Link to={`users/${this.props.tweet.author.id}`}>{this.props.tweet.author.username}</Link>
+          <Link to={`/users/${this.props.tweet.author.id}`}>{this.props.tweet.author.username}</Link>
         </Tooltip>
 
         <img style={style} src={this.props.tweet.author.avatar_url} alt={this.props.tweet.author.handle}/>
@@ -37,7 +37,7 @@ class TweetCard extends React.Component {
       <Card
         title={this.avatar() }
         style={style}
-        bordered={false}
+        bordered={this.props.bordered}
         >
 
         {this.props.tweet.content}

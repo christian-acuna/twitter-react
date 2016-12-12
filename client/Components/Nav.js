@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import React from 'react';
 import { Menu, Icon } from 'antd';
+import { Link } from 'react-router';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -13,7 +14,7 @@ class Nav extends React.Component {
         mode="horizontal"
       >
         <Menu.Item key="alipay">
-          <a href="/" > <Icon type="aliwangwang-o" /> LilTwitter</a>
+          <Link to="/"> <Icon type="aliwangwang-o" /> LilTwitter</Link>
         </Menu.Item>
         <Menu.Item key="user">
           <Icon type="user" />Login
