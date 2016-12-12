@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Nav from './Nav';
+import TweetsContainer from './TweetsContainer';
 
 const Main = React.createClass({
   render() {
@@ -9,8 +10,7 @@ const Main = React.createClass({
       <div >
         <Nav />
         <div style={{ margin: 100 }}>
-          {/* <TweetsContainer /> */}
-          <h1>hi</h1>
+          <TweetsContainer {...this.props}/>
         </div>
       </div>
     );
