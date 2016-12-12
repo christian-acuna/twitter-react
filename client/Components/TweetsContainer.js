@@ -35,7 +35,6 @@ class TweetsContainer extends React.Component {
     return (
       <div style={{ background: '#ECECEC', padding: '30px' }}>
         {this.createRowsWithTweets(this.props.tweets.tweets)}
-        <h2>Hey</h2>
       </div>
     );
   }

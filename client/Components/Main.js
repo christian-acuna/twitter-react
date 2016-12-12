@@ -10,7 +10,7 @@ const Main = React.createClass({
       <div >
         <Nav />
         <div style={{ margin: 100 }}>
-          <TweetsContainer {...this.props}/>
+          {React.cloneElement(this.props.children, this.props)}
         </div>
       </div>
     );

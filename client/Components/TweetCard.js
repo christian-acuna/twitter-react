@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import React from 'react';
 import { Card, Badge, Tooltip } from 'antd';
+import { Link } from 'react-router';
 
 
 class TweetCard extends React.Component {
@@ -14,12 +15,11 @@ class TweetCard extends React.Component {
       background: '#eee',
       marginTop: '2px',
 
-
     };
     return (
       <div>
         <Tooltip placement="top" title={this.props.tweet.author.handle}>
-          <a href="#">{this.props.tweet.author.username}</a>
+          <Link to={`users/${this.props.tweet.author.id}`}>{this.props.tweet.author.username}</Link>
         </Tooltip>
 
         <img style={style} src={this.props.tweet.author.avatar_url} alt={this.props.tweet.author.handle}/>
