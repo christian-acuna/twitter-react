@@ -1,11 +1,22 @@
 /*jshint esversion: 6 */
 import React from 'react';
-import { Menu, Icon } from 'antd';
+import { Form, Menu, Icon, Modal, Checkbox, Input, Button } from 'antd';
+const FormItem = Form.Item;
+import LoginForm from './LoginForm';
+import { Link } from 'react-router';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 
 class Nav extends React.Component {
+
+  showModal() {
+    this.props.showLoginModal();
+  }
+
+  handleCancel() {
+    this.props.hideLoginModal();
+  }
 
   render() {
     return (
@@ -13,10 +24,22 @@ class Nav extends React.Component {
         mode="horizontal"
       >
         <Menu.Item key="alipay">
-          <a href="/" > <Icon type="aliwangwang-o" /> LilTwitter</a>
+          <Link to="/"> <Icon type="aliwangwang-o" /> LilTwitter</Link>
         </Menu.Item>
-        <Menu.Item key="user">
-          <Icon type="user" />Login
+        <Menu.Item  key="user">
+          <div onClick={this.showModal.bind(this)}>
+            <Icon type="user" />Login
+            <Modal title="Login"
+              visible={this.props.sessions.loginVisible}
+              onCancel={this.handleCancel.bind(this)}
+              footer={[
+                <Button key="back" type="ghost" size="large" onClick={this.handleCancel.bind(this)}>Cancel</Button>,
+              ]}
+            >
+              <LoginForm />
+            </Modal>
+          </div>
+
         </Menu.Item>
         <Menu.Item key="app">
           <Icon type="solution" />Sign Up

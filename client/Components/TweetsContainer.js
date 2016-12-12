@@ -3,10 +3,14 @@ import React from 'react';
 import { chunk } from 'lodash';
 import { Row, Col, Card } from 'antd';
 // import css from '../styles/TweetsContainer.css';
-import tweets from '../data/recent_tweets';
+// import tweets from '../data/recent_tweets';
 import TweetCard from './TweetCard';
 
 class TweetsContainer extends React.Component {
+
+  componentWillMount(){
+    this.props.fetchTweets();
+  }
 
   createTweetArray(tweets) {
     return tweets.map((tweet, i) => {
@@ -29,8 +33,10 @@ class TweetsContainer extends React.Component {
 
   render() {
     return (
-      <div style={{ background: '#ECECEC', padding: '30px' }}>
-        {this.createRowsWithTweets(tweets)}
+      <div style={{ margin: 100 }}>
+        <div style={{ background: '#ECECEC', padding: '30px' }}>
+          {this.createRowsWithTweets(this.props.tweets.tweets)}
+        </div>
       </div>
     );
   }

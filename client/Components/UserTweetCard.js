@@ -4,7 +4,7 @@ import { Card, Badge, Tooltip } from 'antd';
 import { Link } from 'react-router';
 
 
-class TweetCard extends React.Component {
+class UserTweetCard extends React.Component {
 
   avatar() {
     const style = {
@@ -18,11 +18,11 @@ class TweetCard extends React.Component {
     };
     return (
       <div>
-        <Tooltip placement="top" title={this.props.tweet.author.handle}>
-          <Link to={`/users/${this.props.tweet.author.id}`}>{this.props.tweet.author.username}</Link>
+        <Tooltip placement="top" title={this.props.author.handle}>
+          <Link to={`/users/${this.props.author.id}`}>{this.props.author.username}</Link>
         </Tooltip>
 
-        <img style={style} src={this.props.tweet.author.avatar_url} alt={this.props.tweet.author.handle}/>
+        <img style={style} src={this.props.author.avatar_url} alt={this.props.author.handle}/>
       </div>
     );
   }
@@ -47,4 +47,4 @@ class TweetCard extends React.Component {
 
 }
 
-export default TweetCard;
+export default UserTweetCard;
