@@ -14,10 +14,6 @@ class Nav extends React.Component {
     this.props.showLoginModal();
   }
 
-  handleOk() {
-    this.props.hideLoginModal();
-  }
-
   handleCancel() {
     this.props.hideLoginModal();
   }
@@ -33,9 +29,12 @@ class Nav extends React.Component {
         <Menu.Item  key="user">
           <div onClick={this.showModal.bind(this)}>
             <Icon type="user" />Login
-            <Modal title="Basic Modal"
+            <Modal title="Login"
               visible={this.props.sessions.loginVisible}
-              onOk={this.handleOk.bind(this)} onCancel={this.handleCancel.bind(this)}
+              onCancel={this.handleCancel.bind(this)}
+              footer={[
+                <Button key="back" type="ghost" size="large" onClick={this.handleCancel.bind(this)}>Cancel</Button>,
+              ]}
             >
               <LoginForm />
             </Modal>
