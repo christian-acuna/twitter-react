@@ -9,13 +9,15 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
 
     e.preventDefault();
+    this.props.sendLogin();
     // console.log(formData);
-    const email = this.refs.email.value;
-    const password = this.refs.password.value;
-    console.log(email, password);
+    // const email = this.refs.email.value;
+    // const password = this.refs.password.value;
+    // console.log(email, password);
     // this.refs.loginForm.reset();
 
-    // browserHistory.push('/');
+    browserHistory.push('/');
+    this.props.hideLoginModal();
   }
 
   render() {

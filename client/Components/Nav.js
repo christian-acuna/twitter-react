@@ -36,14 +36,20 @@ class Nav extends React.Component {
                 <Button key="back" type="ghost" size="large" onClick={this.handleCancel.bind(this)}>Cancel</Button>,
               ]}
             >
-              <LoginForm />
+              <LoginForm {...this.props} />
             </Modal>
           </div>
 
         </Menu.Item>
-        <Menu.Item key="app">
+        { this.props.user.auth.access_token ?
+          <Menu.Item key="app">
+          <Icon type="solution" />Profile
+        </Menu.Item>
+        : <Menu.Item key="app">
           <Icon type="solution" />Sign Up
         </Menu.Item>
+      }
+
       </Menu>
     );
   }

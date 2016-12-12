@@ -11,6 +11,9 @@ export default function reducer(state={
     fetching: false,
     fetched: false,
     error: null,
+    auth: {
+      access_token: null
+    },
   }, action) {
 
     switch (action.type) {
@@ -28,10 +31,10 @@ export default function reducer(state={
           user: action.payload,
         }
       }
-      case "SET_USER_NAME": {
+      case "LOGIN_RESPONSE_FULFILLED": {
         return {
           ...state,
-          user: {...state.user, name: action.payload},
+          auth: {...state.auth, access_token: action.payload.access_token},
         }
       }
       case "SET_USER_AGE": {
