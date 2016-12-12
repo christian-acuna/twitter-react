@@ -10,16 +10,18 @@ import TweetsContainer from './TweetsContainer';
 
 import * as tweetsActions from '../actions/tweetsActions';
 import * as usersActions from '../actions/usersActions';
+import * as sessionsActions from '../actions/sessionsActions';
 
 function mapStateToProps(state) {
   return {
     tweets: state.tweets,
-    user: state.user
+    user: state.user,
+    sessions: state.sessions
   };
 }
 
 function mapDispachToProps(disptach) {
-  return bindActionCreators(Object.assign({}, tweetsActions, usersActions), disptach);
+  return bindActionCreators(Object.assign({}, tweetsActions, usersActions, sessionsActions), disptach);
 }
 
 const App = connect(mapStateToProps, mapDispachToProps)(Main);

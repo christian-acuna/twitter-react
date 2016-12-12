@@ -3,6 +3,7 @@ export default function reducer(state={
     fetching: false,
     fetched: false,
     error: null,
+    test: true
   }, action) {
 
     switch (action.type) {
