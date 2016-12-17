@@ -26,26 +26,33 @@ class Nav extends React.Component {
         <Menu.Item key="alipay">
           <Link to="/"> <Icon type="aliwangwang-o" /> LilTwitter</Link>
         </Menu.Item>
-        <Menu.Item  key="user">
-          <div onClick={this.showModal.bind(this)}>
-            <Icon type="user" />Login
-            <Modal title="Login"
-              visible={this.props.sessions.loginVisible}
-              onCancel={this.handleCancel.bind(this)}
-              footer={[
-                <Button key="back" type="ghost" size="large" onClick={this.handleCancel.bind(this)}>Cancel</Button>,
-              ]}
-            >
-              <LoginForm {...this.props} />
-            </Modal>
-          </div>
+        {
+          this.props.user.auth.access_token ?
+          <Menu.Item key="logout">
+            <Icon type="solution" />Logout
+          </Menu.Item>
+          :
+          <Menu.Item  key="user">
+            <div onClick={this.showModal.bind(this)}>
+              <Icon type="user" />Login
+              <Modal title="Login"
+                visible={this.props.sessions.loginVisible}
+                onCancel={this.handleCancel.bind(this)}
+                footer={[
+                  <Button key="back" type="ghost" size="large" onClick={this.handleCancel.bind(this)}>Cancel</Button>,
+                ]}
+                >
+                  <LoginForm {...this.props} />
+                </Modal>
+              </div>
+            </Menu.Item>
+        }
 
-        </Menu.Item>
         { this.props.user.auth.access_token ?
-          <Menu.Item key="app">
+          <Menu.Item key="profile">
           <Icon type="solution" />Profile
         </Menu.Item>
-        : <Menu.Item key="app">
+        : <Menu.Item key="signup">
           <Icon type="solution" />Sign Up
         </Menu.Item>
       }
